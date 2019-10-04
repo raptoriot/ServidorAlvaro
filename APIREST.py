@@ -20,6 +20,8 @@ stores=[
 def create_store():
     print("llego post")
     request_data=request.get_json()
+    print(request)
+    print(request_data)
     new_store={'name':request_data['name'],'items':[]}
     stores.append(new_store)
     return jsonify(new_store)
@@ -43,6 +45,8 @@ def get_stores():
 @app.route('/store/<string:name>/item',methods=['POST'])
 def create_item_in_store(name):
     request_data = request.get_json()
+    print("llego un dato en el POST")
+
     for store in stores:
         if store['name']==name:
 
